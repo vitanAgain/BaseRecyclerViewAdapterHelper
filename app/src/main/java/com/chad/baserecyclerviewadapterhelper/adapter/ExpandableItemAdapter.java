@@ -37,7 +37,6 @@ public class ExpandableItemAdapter extends BaseMultiItemQuickAdapter<MultiItemEn
         addItemType(TYPE_PERSON, R.layout.item_expandable_lv2);
     }
 
-
     @Override
     protected void convert(final BaseViewHolder holder, final MultiItemEntity item) {
         switch (holder.getItemViewType()) {

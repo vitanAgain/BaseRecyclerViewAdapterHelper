@@ -1,5 +1,8 @@
 package com.chad.baserecyclerviewadapterhelper.adapter;
 
+import android.view.View;
+import android.widget.Toast;
+
 import com.chad.baserecyclerviewadapterhelper.R;
 import com.chad.baserecyclerviewadapterhelper.entity.MultipleItem;
 import com.chad.baserecyclerviewadapterhelper.entity.SectionMultipleItem;
@@ -12,6 +15,7 @@ import java.util.List;
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  */
 public class SectionMultipleItemAdapter extends BaseSectionMultiItemQuickAdapter<SectionMultipleItem, BaseViewHolder> {
+
     /**
      * init SectionMultipleItemAdapter
      * 1. add your header resource layout
@@ -24,6 +28,7 @@ public class SectionMultipleItemAdapter extends BaseSectionMultiItemQuickAdapter
         super(sectionHeadResId, data);
         addItemType(SectionMultipleItem.TEXT, R.layout.item_text_view);
         addItemType(SectionMultipleItem.IMG_TEXT, R.layout.item_img_text_view);
+
     }
 
     @Override
@@ -32,6 +37,13 @@ public class SectionMultipleItemAdapter extends BaseSectionMultiItemQuickAdapter
         helper.setText(R.id.header, item.header);
         helper.setVisible(R.id.more, item.isMore());
         helper.addOnClickListener(R.id.more);
+
+        helper.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "click section", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
